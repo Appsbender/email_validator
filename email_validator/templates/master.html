@@ -1,15 +1,45 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Courier New', Courier, monospace;
+            background: #f1f1f1;
+        }
+
+        .main-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .main-wrapper>section{
+            border: 1px solid #fff;
+            background: #fff;
+            padding: 2rem;
+            margin: .8rem;
+        }
+    </style>
+
 </head>
 
 <body>
-
-    {% block content %}
-    {% endblock %}
-
+    <div class="main-wrapper">
+        <section>
+            {% block content %}
+            {% endblock %}
+        </section>
+    </div>
 </body>
 
 </html>
