@@ -4,6 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from email_validator import settings
 from email_validator.models import ProcessedEmail
+from email_validator.utils import RANDOM_KEYWORDS
 
 import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
@@ -16,14 +17,19 @@ def main(request):
   template = loader.get_template('main.html')
   return HttpResponse(template.render())
 
-
+# def classify_content(text):
+#     if 'buy now' in text.lower():
+#         return 'spam'
+#     elif 'urgent' in text.lower():
+#         return 'spam'
+#     else:
+#         return 'not spam'
+  
 def classify_content(text):
-    if 'buy now' in text.lower():
-        return 'spam'
-    elif 'urgent' in text.lower():
-        return 'spam'
-    else:
-        return 'not spam'
+    for txt in RANDOM_KEYWORDS:
+        if txt.lower() in text.lower():
+            return 'spam'
+    return 'not spam'  
     
 #
 # Let used static  files to serve CSV file for 
