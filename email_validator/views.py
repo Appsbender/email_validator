@@ -16,14 +16,6 @@ from email_validator.services.csv_file_reader import read_csv
 def main(request):
   template = loader.get_template('main.html')
   return HttpResponse(template.render())
-
-# def classify_content(text):
-#     if 'buy now' in text.lower():
-#         return 'spam'
-#     elif 'urgent' in text.lower():
-#         return 'spam'
-#     else:
-#         return 'not spam'
   
 def classify_content(text):
     for txt in RANDOM_KEYWORDS:
