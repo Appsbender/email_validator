@@ -28,15 +28,7 @@ def classify_content(text):
 #
 # Let used static  files to serve CSV file for 
 # uploading emails for the sake  of simplicity
-# 
-def classify_content(text):
-    if 'buy now' in text.lower():
-        return 'spam'
-    elif 'urgent' in text.lower():
-        return 'spam'
-    else:
-        return 'not spam'
-    
+#   
 def classify_email_logic_based(request):
     dataset_path = os.path.join(settings.STATIC_ROOT, 'email_validator/csv/email_dataset.csv')
     details = read_csv(dataset_path)
